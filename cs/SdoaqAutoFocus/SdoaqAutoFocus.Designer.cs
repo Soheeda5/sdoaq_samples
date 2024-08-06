@@ -55,6 +55,7 @@
             this.pnl_View = new System.Windows.Forms.Panel();
             this.pnl_Viewer = new SDOAQCSharp.Component.SdoPanel();
             this.pnl_Controls = new System.Windows.Forms.Panel();
+            this.btn_Init = new System.Windows.Forms.Button();
             this.gpb_Controls.SuspendLayout();
             this.tlp_Main.SuspendLayout();
             this.pnl_View.SuspendLayout();
@@ -66,10 +67,10 @@
             this.txt_Log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Log.Location = new System.Drawing.Point(13, 278);
+            this.txt_Log.Location = new System.Drawing.Point(13, 314);
             this.txt_Log.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Log.Name = "txt_Log";
-            this.txt_Log.Size = new System.Drawing.Size(545, 226);
+            this.txt_Log.Size = new System.Drawing.Size(545, 190);
             this.txt_Log.TabIndex = 1;
             this.txt_Log.Text = "";
             // 
@@ -95,7 +96,7 @@
             this.gpb_Controls.Controls.Add(this.label3);
             this.gpb_Controls.Controls.Add(this.label2);
             this.gpb_Controls.Controls.Add(this.label1);
-            this.gpb_Controls.Location = new System.Drawing.Point(13, 8);
+            this.gpb_Controls.Location = new System.Drawing.Point(13, 52);
             this.gpb_Controls.Name = "gpb_Controls";
             this.gpb_Controls.Size = new System.Drawing.Size(545, 255);
             this.gpb_Controls.TabIndex = 0;
@@ -308,6 +309,7 @@
             // 
             // pnl_Controls
             // 
+            this.pnl_Controls.Controls.Add(this.btn_Init);
             this.pnl_Controls.Controls.Add(this.gpb_Controls);
             this.pnl_Controls.Controls.Add(this.txt_Log);
             this.pnl_Controls.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -315,6 +317,16 @@
             this.pnl_Controls.Name = "pnl_Controls";
             this.pnl_Controls.Size = new System.Drawing.Size(574, 515);
             this.pnl_Controls.TabIndex = 0;
+            // 
+            // btn_Init
+            // 
+            this.btn_Init.Location = new System.Drawing.Point(13, 9);
+            this.btn_Init.Name = "btn_Init";
+            this.btn_Init.Size = new System.Drawing.Size(160, 35);
+            this.btn_Init.TabIndex = 19;
+            this.btn_Init.Text = "Initialize";
+            this.btn_Init.UseVisualStyleBackColor = true;
+            this.btn_Init.Click += new System.EventHandler(this.btn_Init_Click);
             // 
             // SdoaqAutoFocus
             // 
@@ -362,6 +374,7 @@
         private System.Windows.Forms.TableLayoutPanel tlp_Main;
         private System.Windows.Forms.Panel pnl_View;
         private System.Windows.Forms.Panel pnl_Controls;
+        private System.Windows.Forms.Button btn_Init;
     }
 }
 

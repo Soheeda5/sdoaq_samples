@@ -18,6 +18,7 @@ namespace SdoaqAutoFocus
 
         private SdoaqImageViewr _imgViewer;
 
+
         public SdoaqAutoFocus()
         {
             InitializeComponent();
@@ -35,49 +36,65 @@ namespace SdoaqAutoFocus
         private void SdoaqAutoFocus_Load(object sender, EventArgs e)
         {
             tmr_LogUpdate.Start();
-            Frm_Load();
+            Init();
         }
-
-        private void Frm_Load()
+        
+        private void Init()
         {
-            MySdoaq.Initialize();
-        }               
+            bool isInit = MySdoaq.Initialize();
+            if (isInit == false) //Init Fail
+            {
+                gpb_Controls.Enabled = false;
+            }
+        }
 
         private void btn_SetROI_Click(object sender, EventArgs e)
         {
+            // Set ROI
             GetSdoaqObj()?.SetRoi_AF(txt_ROI.Text);
         }
 
         private void btn_SingleShotAF_Click(object sender, EventArgs e)
         {
+            // Single Shot Auto Focus
             var task = GetSdoaqObj()?.Acquisition_AfAsync();
         }
 
         private void btn_PlayAF_Click(object sender, EventArgs e)
         {
+            // Starts an Auto Focus preview
             GetSdoaqObj()?.AcquisitionContinuous_Af();
+
+            btn_SingleShotAF.Enabled = false;
         }
 
         private void btn_StopAF_Click(object sender, EventArgs e)
         {
+            //  Requests a stop of the running continuous AF acquisition.
             GetSdoaqObj()?.AcquisitionStop_Af();
+
+            btn_SingleShotAF.Enabled = true;
         }
 
         private void btn_SharpnessMethod_Click(object sender, EventArgs e)
         {
+            // Focus measure (sharpness measure) method (0: Modified Laplacian, 1: Gradient(Sobel), 2: Graylevel local variance)
             SDOAQ_SetIntParameterValue(SDOAQ_API.eParameterId.pi_af_sharpness_measure_method, txt_SharpnessMethod.Text, 0, 2);            
         }
 
         private void btn_ResamplingMethod_Click(object sender, EventArgs e)
         {
+            // Image processing resolution(0: full, 1: half, 2: quarter)
             SDOAQ_SetIntParameterValue(SDOAQ_API.eParameterId.pi_af_resampling_method, txt_ResamplingMethod.Text, 0, 2);
         }
 
         private void btn_StabilityMethod_Click(object sender, EventArgs e)
         {
+            // 1: None, 2: stability-fullstep, 3: stability-halfstep, 4: stability-onestep
             SDOAQ_SetIntParameterValue(SDOAQ_API.eParameterId.pi_af_stability_method, txt_StabilityMethod.Text, 1, 4);
         }
 
+        #region [Event]
         private void btn_DebounceCount_Click(object sender, EventArgs e)
         {
             SDOAQ_SetIntParameterValue(SDOAQ_API.eParameterId.pi_af_stability_debounce_count, txt_DebounceCount.Text, 0, 10);
@@ -108,8 +125,7 @@ namespace SdoaqAutoFocus
                 }
             }
         }
-
-        #region [Event]
+        
         private void tmr_LogUpdate_Tick(object sender, EventArgs e)
         {
             if (_logBuffer.Length == 0)
@@ -136,6 +152,11 @@ namespace SdoaqAutoFocus
         private void Write_Log(string str)
         {
             Sdoaq_LogDataReceived(null, new LoggerEventArgs(str));
+        }        
+
+        private void btn_Init_Click(object sender, EventArgs e)
+        {
+            Init();
         }
         #endregion
     }
