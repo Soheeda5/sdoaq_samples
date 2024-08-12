@@ -221,5 +221,10 @@ namespace SdoaqEdof
             openFile.FileName = "";
             openFile.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
         }
+
+        private void btn_Init_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

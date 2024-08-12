@@ -46,13 +46,17 @@ namespace SdoaqAutoFocus
             {
                 gpb_Controls.Enabled = false;
             }
+            else
+            {
+                gpb_Controls.Enabled = true;
+            }
         }
 
         private void btn_SetROI_Click(object sender, EventArgs e)
         {
             // Set ROI
             GetSdoaqObj()?.SetRoi_AF(txt_ROI.Text);
-        }
+       }
 
         private void btn_SingleShotAF_Click(object sender, EventArgs e)
         {

@@ -60,9 +60,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_OpenCalibration = new System.Windows.Forms.Button();
+            this.pnl_Viewer = new SDOAQCSharp.Component.SdoPanel();
             this.tmr_LogUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.pnl_Viewer = new SDOAQCSharp.Component.SdoPanel();
+            this.btn_Init = new System.Windows.Forms.Button();
             this.tlp_Main.SuspendLayout();
             this.pnl_Controls.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             // pnl_Controls
             // 
+            this.pnl_Controls.Controls.Add(this.btn_Init);
             this.pnl_Controls.Controls.Add(this.txt_Log);
             this.pnl_Controls.Controls.Add(this.btn_StopEDoF);
             this.pnl_Controls.Controls.Add(this.btn_PlayEDoF);
@@ -104,16 +106,16 @@
             this.txt_Log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Log.Location = new System.Drawing.Point(11, 401);
+            this.txt_Log.Location = new System.Drawing.Point(11, 434);
             this.txt_Log.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Log.Name = "txt_Log";
-            this.txt_Log.Size = new System.Drawing.Size(575, 173);
+            this.txt_Log.Size = new System.Drawing.Size(575, 140);
             this.txt_Log.TabIndex = 14;
             this.txt_Log.Text = "";
             // 
             // btn_StopEDoF
             // 
-            this.btn_StopEDoF.Location = new System.Drawing.Point(417, 353);
+            this.btn_StopEDoF.Location = new System.Drawing.Point(417, 393);
             this.btn_StopEDoF.Name = "btn_StopEDoF";
             this.btn_StopEDoF.Size = new System.Drawing.Size(160, 35);
             this.btn_StopEDoF.TabIndex = 13;
@@ -123,7 +125,7 @@
             // 
             // btn_PlayEDoF
             // 
-            this.btn_PlayEDoF.Location = new System.Drawing.Point(214, 353);
+            this.btn_PlayEDoF.Location = new System.Drawing.Point(214, 393);
             this.btn_PlayEDoF.Name = "btn_PlayEDoF";
             this.btn_PlayEDoF.Size = new System.Drawing.Size(160, 35);
             this.btn_PlayEDoF.TabIndex = 12;
@@ -133,7 +135,7 @@
             // 
             // btn_SingleShotEDoF
             // 
-            this.btn_SingleShotEDoF.Location = new System.Drawing.Point(11, 353);
+            this.btn_SingleShotEDoF.Location = new System.Drawing.Point(11, 393);
             this.btn_SingleShotEDoF.Name = "btn_SingleShotEDoF";
             this.btn_SingleShotEDoF.Size = new System.Drawing.Size(160, 35);
             this.btn_SingleShotEDoF.TabIndex = 11;
@@ -158,7 +160,7 @@
             this.groupBox2.Controls.Add(this.txt_KernelSize);
             this.groupBox2.Controls.Add(this.btn_SetResizeRatio);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(11, 144);
+            this.groupBox2.Location = new System.Drawing.Point(11, 184);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(575, 201);
             this.groupBox2.TabIndex = 1;
@@ -315,7 +317,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_OpenCalibration);
-            this.groupBox1.Location = new System.Drawing.Point(11, 6);
+            this.groupBox1.Location = new System.Drawing.Point(11, 46);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(575, 129);
             this.groupBox1.TabIndex = 0;
@@ -386,14 +388,6 @@
             this.btn_OpenCalibration.UseVisualStyleBackColor = true;
             this.btn_OpenCalibration.Click += new System.EventHandler(this.btn_OpenCalibration_Click);
             // 
-            // tmr_LogUpdate
-            // 
-            this.tmr_LogUpdate.Tick += new System.EventHandler(this.tmr_LogUpdate_Tick);
-            // 
-            // openFile
-            // 
-            this.openFile.FileName = "openFileDialog1";
-            // 
             // pnl_Viewer
             // 
             this.pnl_Viewer.BorderColor = System.Drawing.Color.Black;
@@ -404,6 +398,24 @@
             this.pnl_Viewer.Name = "pnl_Viewer";
             this.pnl_Viewer.Size = new System.Drawing.Size(624, 591);
             this.pnl_Viewer.TabIndex = 3;
+            // 
+            // tmr_LogUpdate
+            // 
+            this.tmr_LogUpdate.Tick += new System.EventHandler(this.tmr_LogUpdate_Tick);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
+            // 
+            // btn_Init
+            // 
+            this.btn_Init.Location = new System.Drawing.Point(11, 9);
+            this.btn_Init.Name = "btn_Init";
+            this.btn_Init.Size = new System.Drawing.Size(230, 30);
+            this.btn_Init.TabIndex = 15;
+            this.btn_Init.Text = "Initialize";
+            this.btn_Init.UseVisualStyleBackColor = true;
+            this.btn_Init.Click += new System.EventHandler(this.btn_Init_Click);
             // 
             // SdoaqEDoF
             // 
@@ -462,6 +474,7 @@
         private System.Windows.Forms.Timer tmr_LogUpdate;
         private System.Windows.Forms.ComboBox cmb_EdofResizeRatio;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.Button btn_Init;
     }
 }
 
